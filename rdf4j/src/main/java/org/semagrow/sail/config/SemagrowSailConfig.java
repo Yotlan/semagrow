@@ -13,7 +13,9 @@ import org.eclipse.rdf4j.sail.inferencer.fc.config.ForwardChainingRDFSInferencer
 import org.eclipse.rdf4j.sail.memory.config.MemoryStoreConfig;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 /**
@@ -64,7 +66,11 @@ public class SemagrowSailConfig extends AbstractSailImplConfig {
         if (filenames.isEmpty()) {
             List<String> autoFiles = new LinkedList<String>();
             try {
-                File f =  FileUtils.getFile("metadata.ttl");
+                Properties prop = new Properties();
+                prop.load(new FileInputStream(System.getProperty("user.dir")+"/config.properties"));
+                String metadataFile = prop.getProperty("metadata.file");
+		
+                File f =  FileUtils.getFile(metadataFile);
                 autoFiles.add(f.getAbsolutePath());
                 return autoFiles;
             } catch (IOException e) {

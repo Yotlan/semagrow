@@ -14,7 +14,7 @@ public class FileUtils {
     private static final String SEMAGROW_CONFIG_FALLBACK = "/tmp/";
     
     public static File getFile(String fileName) throws IOException{
-        File f = new File(SEMAGROW_CONFIG, fileName);
+        File f = new File(fileName);
         if(!f.exists()){
             f = new File(SEMAGROW_CONFIG_FALLBACK, fileName);
             if(!f.exists()){

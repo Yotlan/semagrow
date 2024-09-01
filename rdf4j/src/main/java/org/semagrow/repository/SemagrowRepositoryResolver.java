@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Properties;
 
 /**
  * Created by angel on 17/6/2016.
@@ -53,7 +54,10 @@ public class SemagrowRepositoryResolver implements RepositoryResolver {
     protected RepositoryImplConfig getConfig() {
 
         try {
-            File file = FileUtils.getFile("repository.ttl");
+            Properties prop = new Properties();
+            prop.load(new FileInputStream(System.getProperty("user.dir")+"/config.properties"));
+            String configFile = prop.getProperty("config.file");
+            File file = FileUtils.getFile(configFile);
             Model configGraph = parseConfig(file);
             RepositoryConfig repConf = RepositoryConfig.create(configGraph, null);
             repConf.validate();
