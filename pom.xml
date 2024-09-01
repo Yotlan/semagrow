@@ -29,7 +29,7 @@
         <module>sparql</module>
         <module>rdf4j</module>
         <module>http-endpoint</module>
-        <module>webgui</module>
+        <!-- <module>webgui</module> -->
         <module>assembly</module>
         <module>geospatial</module>
     </modules>

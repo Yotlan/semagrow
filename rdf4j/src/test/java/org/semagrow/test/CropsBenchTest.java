@@ -207,7 +207,7 @@ public class CropsBenchTest {
             SemagrowSailFactory factory = new SemagrowSailFactory();
             SemagrowSailConfig config = new SemagrowSailConfig();
             Repository repository = new SemagrowSailRepository((SemagrowSail) factory.getSail(config));
-            repository.initialize();
+            repository.init();
             RepositoryConnection conn = repository.getConnection();
             TupleQuery query = conn.prepareTupleQuery(QueryLanguage.SPARQL, queryString);
             TupleExpr plan = ((SemagrowTupleQuery) query).getDecomposedQuery();

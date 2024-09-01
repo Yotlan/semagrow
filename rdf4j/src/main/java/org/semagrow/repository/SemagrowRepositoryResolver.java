@@ -9,7 +9,7 @@ import org.eclipse.rdf4j.query.resultio.TupleQueryResultParserRegistry;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryException;
 import org.eclipse.rdf4j.repository.config.*;
-import org.eclipse.rdf4j.repository.sail.config.RepositoryResolver;
+import org.eclipse.rdf4j.repository.RepositoryResolver;
 import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.RDFParser;
 import org.eclipse.rdf4j.rio.Rio;
@@ -35,7 +35,7 @@ public class SemagrowRepositoryResolver implements RepositoryResolver {
         RepositoryImplConfig repoConfig = getConfig();
         RepositoryFactory repoFactory = RepositoryRegistry.getInstance().get(repoConfig.getType()).get();
         Repository repository = repoFactory.getRepository(repoConfig);
-        repository.initialize();
+        repository.init();
 
         // remove CSV and TSV format due to bug: literals are recognized as URIs if they contain a substring parsable as URI.
         TupleQueryResultParserRegistry registry = TupleQueryResultParserRegistry.getInstance();

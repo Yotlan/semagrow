@@ -44,7 +44,7 @@ public class ConnectionManager {
         }
 
         if (!repo.isInitialized())
-            repo.initialize();
+            repo.init();
 
         RepositoryConnection conn = repo.getConnection();
         logger.debug("Open [{}] (currently open={})", conn, countconn);

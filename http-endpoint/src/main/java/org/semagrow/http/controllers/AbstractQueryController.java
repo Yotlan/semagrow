@@ -15,7 +15,7 @@ import org.eclipse.rdf4j.query.impl.SimpleDataset;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.RepositoryException;
-import org.eclipse.rdf4j.repository.sail.config.RepositoryResolver;
+import org.eclipse.rdf4j.repository.RepositoryResolver;
 import org.semagrow.art.LogUtils;
 import org.semagrow.repository.SemagrowRepositoryResolver;
 import org.slf4j.Logger;
