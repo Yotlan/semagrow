@@ -102,7 +102,7 @@ public class CliMain {
             RepositoryConnection conn = repository.getConnection();
             TupleQuery query = (TupleQuery) conn.prepareTupleQuery(QueryLanguage.SPARQL, queryString);
 
-            try (BufferedWriter explain_writer = new BufferedWriter(new FileWriter(new File(line.getOptionValue(explanationFile))))){
+            try (BufferedWriter explain_writer = new BufferedWriter(new FileWriter(new File(explanationFile))) ) {
                 explain_writer.write(String.valueOf(query));
             }
 
